@@ -17,4 +17,4 @@ Using Moment.js was actually a lot of fun! Once I got my burings in the document
 All of the styling for this app was included in the start docs but I ended up changing the color palette and font to make it feel more contemporary and personalized.
 
 #### Contact
-If you have any questions, please email [Aiden Threadgood](mailto:aiden.threadgoode@gmail.com)
+If you have any questions, please email [Aiden Threadgoode](mailto:aiden.threadgoode@gmail.com)
