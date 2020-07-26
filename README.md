@@ -1,6 +1,6 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-[Aiden's Work Day Scheduler]()
+[Aiden's Work Day Scheduler](https://a-thread.github.io/Daily-Scheduler/s)
 
 The assignment was to create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
