@@ -10,25 +10,6 @@ $(document).ready(function () {
     localStorage.setItem(hour, activity); // setting the hour and event to local storage
   });
 
-  // Determining the row hour...
-  function hourUpdate() {
-    $(".parent").each(function () {
-      var ourHour = parseInt($(this).attr("id").split("-")[1]); //...separating the number from the "hour-" and selecting the number in that string
-      var momentHour = moment().hours(); // This connects the moment function and keeps the calendar current.
-      var _this = $(this); // trying to reduce the times that the DOM is called
-
-      // This statement compares ourHour to the momentHour to determine past/present/future classes for our textAreas
-      if (ourHour < momentHour) {
-        _this.children(".description").addClass("past");
-      } else if (ourHour === momentHour) {
-        _this.children(".description").addClass("present");
-        _this.children(".description").removeClass("past");
-      } else {
-        _this.children(".description").addClass("future");
-        _this.children(".description").removeClass("past");
-        _this.children(".description").removeClass("present");
-      }
-    });
   }
 
   setInterval(hourUpdate, 6000); // this will update the hour class every minute
