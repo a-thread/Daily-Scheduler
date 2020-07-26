@@ -1,6 +1,6 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-[Aiden's Work Day Scheduler](https://a-thread.github.io/Daily-Scheduler/s)
+[Aiden's Work Day Scheduler](https://a-thread.github.io/Daily-Scheduler/)
 
 The assignment was to create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
@@ -17,4 +17,4 @@ Using Moment.js was actually a lot of fun! Once I got my burings in the document
 All of the styling for this app was included in the start docs but I ended up changing the color palette and font to make it feel more contemporary and personalized.
 
 #### Contact
-If you have any questions, please email ![Aiden Threadgood](mailto:"aiden.threadgoode@gmail.com")
+If you have any questions, please email [Aiden Threadgood](mailto:aiden.threadgoode@gmail.com)
