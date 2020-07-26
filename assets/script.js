@@ -15,7 +15,6 @@ $(document).ready(function () {
     $(".parent").each(function () {
       var ourHour = parseInt($(this).attr("id").split("-")[1]); //...separating the number from the "hour-" and selecting the number in that string
       var momentHour = moment().hours(); // This connects the moment function and keeps the calendar current.
-      var _this = $(this); // trying to reduce the times that the DOM is c
 
       // This statement compares ourHour to the momentHour to determine past/present/future classes for our textAreas
       if (ourHour < momentHour) {
