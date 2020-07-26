@@ -16,5 +16,8 @@ Using Moment.js was actually a lot of fun! Once I got my bearings in the documen
 ### Styling
 All of the styling for this app was included in the start docs but I ended up changing the color palette and font to make it feel more contemporary and personalized.
 
+### Accessability
+I wanted to focus on accessability during this build and tried to include labels for everything to optimize screen reader capability.
+
 #### Contact
 *If you have any questions, please email [Aiden Threadgoode](mailto:aiden.threadgoode@gmail.com)*
