@@ -1,0 +1,103 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+textarea {
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #614e4e;
+  border-left: 1px solid black;
+  padding: 10px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #3d5a80;
+  color: white;
+  border-radius: 0;
+  border-bottom: 10px solid #98c1d9;
+  font-family: 'Varela Round', sans-serif;
+  padding-bottom: 30px;
+}
+
+#currentDay {
+  font-weight: 700;
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+#clearDay {
+  border-radius: 15px;
+  background-color: #293241;
+  color: white;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.row {
+  white-space: pre-wrap;
+  height: 80px;
+  border-top: 1px solid white;;
+}
+
+/* Hourly Stylings */
+.hour {
+  background-color: #3d5a80;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: white;
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+/* Event Stylings */
+.description{
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+/* Times of Day */
+.past {
+  background-color: #98c1d9;
+  color: white;
+}
+.present {
+  background-color: #e0fbfc;
+  color: #3D405B;
+}
+.future {
+  background-color: #ffd6ba;
+  color: #3D405B;
+}
+
+/* Save Button Stylings */
+.saveBtn {
+  border-color: #ff9b54;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #ff9b54;
+  color: #ffffff;
+  font-size: xx-large;
+}
+.saveBtn i:hover {
+  transition: all .5s ease-in-out;
+}
+
+
+@media (max-width: 800px) {
+  .hour {
+    font-size: 18px;
+  }
+}
