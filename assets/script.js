@@ -1,93 +1,52 @@
 $(document).ready(function () {
-  // Setting the day on the header
-  const currentDay = $("#currentDay");
-  // Creating an empty array to hold calendar events
-  let eventsArray = "";
-  // This saves at which moment the calendar was last rendered
-  let calendarRendered = moment();
+  // Setting the date and time for the header
+  $("#currentDay").text(moment().format("[Today is] dddd, MMMM Do YYYY"));
 
-  // Building the calendar for the current day with saved Events
-  function renderCalendar(today, eventsArray) {
-    let newHour = moment(today).hour(9); // Starting at 9am...
-    const hourRow = $(".parent"); // Building onto the container element of the HTML reference code
-    
-    for (let i = 1; i < 10; i++) {
-      // Looping through calendar to build a 9am to 5pm workday
-      
-      let timeBlock = newHour.format("hA"); // setting up the timeBlocks and hourly format
-      
-      let timeOfDay = ""; // empty string to hold the different classes defining "past", "present", & "future" events
-      if (today.isAfter(newHour, "hour")) {
-        timeOfDay = "past";
-      } else if (today.isBefore(newHour, "hour")) {
-        timeOfDay = "future";
+  // Function for all of the save buttons
+  $(".saveBtn").on("click", function () {
+    var activity = $(this).siblings(".description").val(); // this value will capture the value of our textArea
+    var hour = $(this).parent().attr("id"); // this captures the id which tells us which hour the event coresponds to
+
+    localStorage.setItem(hour, activity); // setting the hour and event to local storage
+  });
+
+  // Determining the row hour...
+  function hourUpdate() {
+    $(".parent").each(function () {
+      var ourHour = parseInt($(this).attr("id").split("-")[1]); //...separating the number from the "hour-" and selecting the number in that string
+      var momentHour = moment().hours(); // This connects the moment function and keeps the calendar current.
+      var _this = $(this); // trying to reduce the times that the DOM is called
+
+      // This statement compares ourHour to the momentHour to determine past/present/future classes for our textAreas
+      if (ourHour < momentHour) {
+        _this.children(".description").addClass("past");
+      } else if (ourHour === momentHour) {
+        _this.children(".description").addClass("present");
+        _this.children(".description").removeClass("past");
       } else {
-        timeOfDay = "present";
+        _this.children(".description").addClass("future");
+        _this.children(".description").removeClass("past");
+        _this.children(".description").removeClass("present");
       }
-      
-      hourRow.append(row); // attaching row to container
-      
-      const row = $("<div>").addClass("row"); // Adding a row to hold each element
-
-      row.append($("<div>").addClass("col-2 hour").text(timeBlock)); // adding the hour column
-
-      row.append(
-        $("<textarea>")
-          .addClass(`col-8 ${timeOfDay}`)
-          .addClass("description")
-          .text(eventsArray[timeBlock])
-      ); // adding events column with any saved events
-
-      row.append($("<button>").addClass("col-2 saveBtn").attr("id", timeBlock)); // adding buttons
-
-      newHour.add(1, "hour"); // increasing each hour til it reaches 5
-    }
+    });
   }
 
-  // Setting the current day
-  function initCal() {
-    const today = moment();
-    currentDay.text(today.format("LL")); // setting the header to display the day
+  setInterval(hourUpdate, 6000); // this will update the hour class every minute
 
-    renderCalendar(today, eventsArray); // building the daily calendar with saved events
-  }
+  // Storage for each textArea
+  $("#hour-9 .description").val(localStorage.getItem("hour-9"));
+  $("#hour-10 .description").val(localStorage.getItem("hour-10"));
+  $("#hour-11 .description").val(localStorage.getItem("hour-11"));
+  $("#hour-12 .description").val(localStorage.getItem("hour-12"));
+  $("#hour-13 .description").val(localStorage.getItem("hour-13"));
+  $("#hour-14 .description").val(localStorage.getItem("hour-14"));
+  $("#hour-15 .description").val(localStorage.getItem("hour-15"));
+  $("#hour-16 .description").val(localStorage.getItem("hour-16"));
+  $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
-  // Stores events to local storage
-  function storeEvents() {
-    localStorage.setItem("eventsArray", JSON.stringify(eventsArray));
-  }
-
-  // Loads events from local storage
-  function loadEvents() {
-    let storedEvents = JSON.parse(localStorage.getItem("eventsArray"));
-    if (storedEvents) {
-      eventsArray = storedEvents;
-    }
-    console.log("my events: ", storedEvents);
-  }
-
-  // Checking the current time when calendar is rendered.
-  function currentTime() {
-    const checkTimeInterval = setInterval(function () {
-      if (moment().isAfter(calendarRendered, "minute")) {
-        initCal();
-      }
-    }, 60000);
-  }
-
-  loadEvents();
-  initCal();
-  currentTime();
-
-  // Saving the events when the buttons are clicked
-  $("button.saveBtn").on("click", function (event) {
-    let saveEvent = $(this).siblings(".description").val();
-    console.log(timeBlock);
-
-    // let saveEvent = event.currentTarget.parentElement.children[1].value;
-    // eventsArray[event.currentTarget.id] = saveEvent;
-    storeEvents();
-    console.log(saveEvent);
-    console.log(timeKey);
+  // Clear Button --> clears local storage & resets calendar
+  $("#clearDay").on("click", function () {
+    localStorage.clear();
+    location.reload(true);
   });
 });
