@@ -6,7 +6,6 @@ $(document).ready(function () {
   $(".saveBtn").on("click", function () {
     var activity = $(this).siblings(".description").val(); // this value will capture the value of our textArea
     var hour = $(this).parent().attr("id"); // this captures the id which tells us which hour the event coresponds to
-
     localStorage.setItem(hour, activity); // setting the hour and event to local storage
   });
 
@@ -30,7 +29,7 @@ $(document).ready(function () {
     });
   }
 
-  setInterval(hourUpdate, 6000); // this will update the hour class every minute
+  setInterval(hourUpdate, 1000); // this will update the hour class every second
 
   // Storage for each textArea
   $("#hour-9 .description").val(localStorage.getItem("hour-9"));
