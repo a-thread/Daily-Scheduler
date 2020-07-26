@@ -15,17 +15,18 @@ $(document).ready(function () {
     $(".parent").each(function () {
       var ourHour = parseInt($(this).attr("id").split("-")[1]); //...separating the number from the "hour-" and selecting the number in that string
       var momentHour = moment().hours(); // This connects the moment function and keeps the calendar current.
+      var _this = $(this); // trying to reduce the times that the DOM is called
 
       // This statement compares ourHour to the momentHour to determine past/present/future classes for our textAreas
       if (ourHour < momentHour) {
-        $(this).children(".description").addClass("past");
+        _this.children(".description").addClass("past");
       } else if (ourHour === momentHour) {
-        $(this).children(".description").addClass("present");
-        $(this).children(".description").removeClass("past");
+        _this.children(".description").addClass("present");
+        _this.children(".description").removeClass("past");
       } else {
-        $(this).children(".description").addClass("future");
-        $(this).children(".description").removeClass("past");
-        $(this).children(".description").removeClass("present");
+        _this.children(".description").addClass("future");
+        _this.children(".description").removeClass("past");
+        _this.children(".description").removeClass("present");
       }
     });
   }
